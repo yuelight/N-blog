@@ -1,1 +1,4 @@
-# hello-blog
+# hello-nodeblog
+Personal blog 
+
+Node + Express + Mongodb
