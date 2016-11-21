@@ -30,7 +30,7 @@ module.exports = function(app, config) {
     app.locals.pageName = req.path;
     app.locals.truncate = truncate;
     app.locals.moment = moment;
-    Category.find(function(err, categories) {
+    Category.find({}).sort('-created').exec(function(err, categories) {
       if (err) {
         return next();
       }

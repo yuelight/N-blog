@@ -82,7 +82,6 @@ router.get('/add', function (req, res, next) {
 });
 
 router.post('/add', function (req, res, next) {
-
     req.checkBody("title", "文章标题不能为空").notEmpty();
     req.checkBody("category", "必须指定文章分类").notEmpty();
     req.checkBody("content", "文章内容至少写几句").notEmpty();
