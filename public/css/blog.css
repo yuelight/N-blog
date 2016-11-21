@@ -3,7 +3,7 @@
  */
 
 body {
-  color: #555;
+    color: #555;
 }
 
 h1, .h1,
@@ -48,6 +48,7 @@ h6, .h6 {
   padding: 10px;
   font-weight: 500;
   color: #cdddeb;
+  line-height: 30px;
 }
 .blog-nav-item:hover,
 .blog-nav-item:focus {
@@ -100,7 +101,7 @@ h6, .h6 {
 
 .blog-main {
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.5em;
 }
 
 /* Sidebar modules for boxing content */
@@ -200,7 +201,7 @@ h6, .h6 {
 
 .blog-footer {
   margin-top: 20px;
-  padding: 40px 0;
+  padding: 20px 0;
   color: #999;
   text-align: center;
   background-color: #f9f9f9;

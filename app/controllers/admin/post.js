@@ -34,6 +34,10 @@ router.get('/', function (req, res, next) {
     if (req.query.author) {
         conditions.author = req.query.author.trim();
     }
+    if (req.query.keyword) {
+        conditions.title = new RegExp(req.query.keyword.trim(), 'i');
+        conditions.content = new RegExp(req.query.keyword.trim(), 'i');
+    }
 
     User.find({}, function (err, authors) {
         if (err) return next(err);
@@ -64,7 +68,8 @@ router.get('/', function (req, res, next) {
                 pretty: true,
                 filter: {
                     category: req.query.category || "",
-                    author: req.query.author || ""
+                    author: req.query.author || "",
+                    keyword: req.query.keyword || ""
                 }
             });
         });
