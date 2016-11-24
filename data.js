@@ -22,16 +22,16 @@ var User = mongoose.model("User");
 var Category = mongoose.model("Category");
 
 User.findOne(function (err, user) {
-	if (err) { 
-		return console.log("connot find user"); 
+	if (err) {
+		return console.log("connot find user");
 	}
 
 	Category.find(function (err, categories) {
-		for (var i = 0; i < 35; i++) {
-			if(err) {
-				return console.log("connot find category");
-			}
-			categories.forEach(function (category) {
+		if(err) {
+			return console.log("connot find category");
+		}
+		categories.forEach(function (category) {
+			for (var i = 0; i < 35; i++) {
 				var title = loremipsum({ count: 1, units: "sentence" });
 				var post = new Post({
 					title: title,
@@ -48,7 +48,7 @@ User.findOne(function (err, user) {
 				post.save(function (err, post) {
 					console.log("savad post: ", post.slug);
 				});
-			});
-		}
+			}
+		});
 	});
 });
