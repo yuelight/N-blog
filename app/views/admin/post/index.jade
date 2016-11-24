@@ -31,69 +31,54 @@ block content
 					if sortby === "title"
 						if (sortdir === "desc")
 							a(href="/admin/posts?page=" + pageNum + "&sortby=title&sortdir=asc")
-								i.fa.fa-arrow-down
-								&nbsp;标题
+								i.fa.fa-arrow-down &nbsp;标题
 						else
 							a(href="/admin/posts?page=" + pageNum + "&sortby=title&sortdir=desc")
-								i.fa.fa-arrow-up
-								&nbsp;标题
+								i.fa.fa-arrow-up &nbsp;标题
 					else
-						a(href="/admin/posts?page=" + pageNum + "&sortby=title&sortdir=desc")
-							标题
+						a(href="/admin/posts?page=" + pageNum + "&sortby=title&sortdir=desc") 标题
 				th
 					if sortby === "category"
 						if (sortdir === "desc")
 							a(href="/admin/posts?page=" + pageNum + "&sortby=category&sortdir=asc")
-								i.fa.fa-arrow-down
-								&nbsp;分类
+								i.fa.fa-arrow-down &nbsp;分类
 						else
 							a(href="/admin/posts?page=" + pageNum + "&sortby=category&sortdir=desc")
-								i.fa.fa-arrow-up
-								&nbsp;分类
+								i.fa.fa-arrow-up &nbsp;分类
 					else
-						a(href="/admin/posts?page=" + pageNum + "&sortby=category&sortdir=desc")
-							分类
+						a(href="/admin/posts?page=" + pageNum + "&sortby=category&sortdir=desc") 分类
 				th
 					if sortby === "author"
 						if (sortdir === "desc")
 							a(href="/admin/posts?page=" + pageNum + "&sortby=author&sortdir=asc")
-								i.fa.fa-arrow-down
-								&nbsp;作者
+								i.fa.fa-arrow-down &nbsp;作者
 						else
 							a(href="/admin/posts?page=" + pageNum + "&sortby=author&sortdir=desc")
-								i.fa.fa-arrow-up
-								&nbsp;作者
+								i.fa.fa-arrow-up &nbsp;作者
 					else
-						a(href="/admin/posts?page=" + pageNum + "&sortby=author&sortdir=desc")
-							作者
+						a(href="/admin/posts?page=" + pageNum + "&sortby=author&sortdir=desc") 作者
 				th
 					if sortby === "created"
 						if (sortdir === "desc")
 							a(href="/admin/posts?page=" + pageNum + "&sortby=created&sortdir=asc")
-								i.fa.fa-arrow-down
-								&nbsp;添加时间
+								i.fa.fa-arrow-down &nbsp;添加时间
 						else
 							a(href="/admin/posts?page=" + pageNum + "&sortby=created&sortdir=desc")
-								i.fa.fa-arrow-up
-								&nbsp;添加时间
+								i.fa.fa-arrow-up &nbsp;添加时间
 					else
-						a(href="/admin/posts?page=" + pageNum + "&sortby=created&sortdir=desc")
-							作者
+						a(href="/admin/posts?page=" + pageNum + "&sortby=created&sortdir=desc") 作者
 				th 别赞
 				th 评论
 				th
 					if sortby === "published"
 						if (sortdir === "desc")
 							a(href="/admin/posts?page=" + pageNum + "&sortby=published&sortdir=asc")
-								i.fa.fa-arrow-down
-								&nbsp;状态
+								i.fa.fa-arrow-down &nbsp;状态
 						else
 							a(href="/admin/posts?page=" + pageNum + "&sortby=published&sortdir=desc")
-								i.fa.fa-arrow-up
-								&nbsp;状态
+								i.fa.fa-arrow-up &nbsp;状态
 					else
-						a(href="/admin/posts?page=" + pageNum + "&sortby=published&sortdir=desc")
-							状态
+						a(href="/admin/posts?page=" + pageNum + "&sortby=published&sortdir=desc") 状态
 				th 管理
 		tbody
 		each post in posts
@@ -107,10 +92,8 @@ block content
 				td= post.comments.length || 0
 				td= post.published ? "已发布" : "待发布"
 				td
-					a.btn.btn-sm.btn-success(href="/posts/view/" + post._id, target="_blank") 查看
-					&nbsp;&nbsp;
-					a.btn.btn-sm.btn-info(href="/admin/posts/edit/" + post._id, target="_blank") 编辑
-					&nbsp;&nbsp;
+					a.btn.btn-sm.btn-success(href="/posts/view/" + post._id, target="_blank") 查看&nbsp;&nbsp;
+					a.btn.btn-sm.btn-info(href="/admin/posts/edit/" + post._id, target="_blank") 编辑&nbsp;&nbsp;
 					a.btn.btn-sm.btn-danger(href="/admin/posts/delete/" + post._id) 删除
 
 	if pageCount > 1
