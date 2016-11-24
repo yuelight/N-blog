@@ -9,21 +9,25 @@ module.exports = function (app) {
     app.use('/admin/users', router);
 };
 
+module.exports.requireLogin = function (req, res, next) {
+    if (req.user) {
+        next();
+    } else {
+        req.flash('error', '只有登录用户才能访问');
+        res.redirect('/admin/users/login');
+    }
+};
+
 router.get('/login', function (req, res, next) {
     res.render('admin/user/login', {
         pretty: true
     });
 });
 
-module.exports.requireLogin = function (req, res, next) {
-    if (req.user) {
-        next();
-    } else {
-        next(new Error('登录用户才能访问'));
-    }
-};
-
-router.post('/login', passport.authenticate('local',{ failureRedirect: '/admin/users/login' }), function (req, res, next) {
+router.post('/login', passport.authenticate('local',{
+        failureRedirect: '/admin/users/login',
+        failureFlash: '用户名或密码错误'
+    }), function (req, res, next) {
     console.log('user login success: ', req.body);
     res.redirect('/admin/posts');
 });

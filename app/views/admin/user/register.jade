@@ -2,9 +2,12 @@ extends ../layout_user
 
 block content
     form.form-signin.form-register(method='post', action='/admin/users/register')
+    
         h2.form-signin-heading 管理员注册
             small.pull-right
                 a(href="/admin/users/login") 登录
+                
+        != messages()
         
         label.sr-only(for="email") 邮箱
         input#email.form-control(type='email', name='email', placeholder='Email address', required='', autofocus='')
