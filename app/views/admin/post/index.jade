@@ -37,16 +37,18 @@ block content
 								i.fa.fa-arrow-up &nbsp;标题
 					else
 						a(href="/admin/posts?page=" + pageNum + "&sortby=title&sortdir=desc") 标题
-				th
-					if sortby === "category"
-						if (sortdir === "desc")
-							a(href="/admin/posts?page=" + pageNum + "&sortby=category&sortdir=asc")
-								i.fa.fa-arrow-down &nbsp;分类
-						else
-							a(href="/admin/posts?page=" + pageNum + "&sortby=category&sortdir=desc")
-								i.fa.fa-arrow-up &nbsp;分类
-					else
-						a(href="/admin/posts?page=" + pageNum + "&sortby=category&sortdir=desc") 分类
+				each post in posts
+					if post.category
+						th
+							if sortby === "category"
+								if (sortdir === "desc")
+									a(href="/admin/posts?page=" + pageNum + "&sortby=category&sortdir=asc")
+										i.fa.fa-arrow-down &nbsp;分类
+								else
+									a(href="/admin/posts?page=" + pageNum + "&sortby=category&sortdir=desc")
+										i.fa.fa-arrow-up &nbsp;分类
+							else
+								a(href="/admin/posts?page=" + pageNum + "&sortby=category&sortdir=desc") 分类
 				th
 					if sortby === "author"
 						if (sortdir === "desc")
@@ -85,7 +87,8 @@ block content
 			tr
 				td
 					a(href="/posts/view/" + post._id, target="_blank")= post.title
-				td= post.category.name
+				if post.category
+					td= post.category.name
 				td= post.author.email
 				td= moment(post.created).format("YYYY-MM-DD HH:mm:ss")
 				td= post.meta.favorite || 0

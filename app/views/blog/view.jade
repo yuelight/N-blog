@@ -14,8 +14,8 @@ block content
 				= post.author.name
 			span.post-category
 				i.fa.fa-shopping-basket
-				&nbsp;
-				a(href='/posts/category/' + post.category.name, target="_blank")=post.category.name
+				| &nbsp;
+				| a(href='/posts/category/' + post.category.name, target="_blank")=post.category.name
 			span.post-comment
 				i.fa.fa-comment
 				&nbsp;

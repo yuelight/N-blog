@@ -17,8 +17,8 @@ block content
 					作者:&nbsp;
 					= post.author.name
 				span.post-category
-					分类:&nbsp;
-					a(href='/posts/category/' + post.category.name, target="_blank")=post.category.name
+					| 分类:&nbsp;
+					| a(href='/posts/category/' + post.category.name, target="_blank")=post.category.name
 				span.post-comment
 					评论:&nbsp;
 					= post.comments.length || 0
